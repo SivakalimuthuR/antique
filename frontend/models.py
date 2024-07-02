@@ -15,11 +15,10 @@ from django.db import models
 class Product(models.Model):
     productname = models.CharField(max_length=250)
     content = models.TextField()
-    img_url = models.URLField(null=True)
+    image = models.ImageField(upload_to='images/')
     created_at = models.DateTimeField(auto_now_add=True)
     starting_price = models.DecimalField(max_digits=20, decimal_places=2)
-    current_price = models.DecimalField(max_digits=20, decimal_places=2)
-    closing_time = models.DateTimeField(auto_now_add=True)
+    closing_time = models.DateField()
 
 
     def __str__(self):
